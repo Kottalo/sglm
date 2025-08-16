@@ -10,9 +10,10 @@
   "scripts": {
     "dev:server": "bun run src/index.ts",
     "dev:client": "cd client && bun run dev",
-    "dev": "concurrently -k -n server,client -c blue,green \"bun run dev:server\" \"bun run dev:client\""
+    "dev": "concurrently -k -n server,client -c blue,green \"bun run dev:server\" \"bun run dev:client\"",
+    "seed": "bunx prisma db seed"
   },
   "prisma": {
-    "seed": "bun run prisma/seed.ts"
+    "seed": "bun run ./prisma/seed.ts"
   }
 }
