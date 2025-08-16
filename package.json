@@ -1,15 +1,18 @@
 {
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "prisma": "^6.14.0"
   },
   "dependencies": {
-    "@prisma/client": "^6.14.0"
+    "@prisma/client": "^6.14.0",
+    "socket.io": "^4.8.1"
   },
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "scripts": {
-    "dev": "bun run --filter '*' dev"
+    "dev:server": "bun run src/index.ts",
+    "dev:client": "cd client && bun run dev",
+    "dev": "concurrently -k -n server,client -c blue,green \"bun run dev:server\" \"bun run dev:client\""
+  },
+  "prisma": {
+    "seed": "bun run prisma/seed.ts"
   }
 }
