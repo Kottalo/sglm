@@ -9,7 +9,7 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "dev:server": "bun run src/index.ts",
+    "dev:server": "bun run --watch src/index.ts",
     "dev:client": "cd client && bun run dev",
     "dev": "concurrently -k -n server,client -c blue,green \"bun run dev:server\" \"bun run dev:client\"",
     "seed": "bunx prisma db seed"

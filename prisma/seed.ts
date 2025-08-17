@@ -16,27 +16,6 @@ const data = XLSX.utils.sheet_to_json(sheet);
 
 console.log(data);
 
-// async function main() {
-//   await prisma.item.create({
-//     data: {
-//       name: "Sample Item",
-//       price: 19.99,
-//     },
-//   });
-// }
-
 await prisma.item.createMany({
   data: data as any[], // Ensure the data matches your Prisma schema),
 });
-
-// main()
-//   .then(() => {
-//     console.log("Seeding done!");
-//   })
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   })
-//   .finally(async () => {
-//     await prisma.$disconnect();
-//   });
